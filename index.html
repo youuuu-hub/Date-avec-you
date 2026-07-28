@@ -3,121 +3,224 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>❤️ Une question...</title>
 
 <style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
 body{
-    margin:0;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#f8f5f2;
-    font-family:Georgia, serif;
+overflow:hidden;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:Georgia, serif;
+background:linear-gradient(135deg,#ffe4ec,#fff8fb);
+position:relative;
+}
+
+.heart{
+position:fixed;
+top:-30px;
+font-size:20px;
+animation:fall linear forwards;
+opacity:.8;
+pointer-events:none;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-50px) rotate(0deg);
+opacity:0;
+}
+15%{
+opacity:1;
+}
+100%{
+transform:translateY(110vh) rotate(360deg);
+opacity:0;
+}
 }
 
 .card{
-    width:550px;
-    background:white;
-    padding:50px;
-    border-radius:15px;
-    text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
+width:560px;
+padding:55px;
+background:rgba(255,255,255,.92);
+backdrop-filter:blur(10px);
+border-radius:20px;
+text-align:center;
+box-shadow:0 20px 45px rgba(0,0,0,.15);
+animation:pop .8s;
+z-index:10;
+}
+
+@keyframes pop{
+from{
+transform:scale(.8);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
 }
 
 .small{
-    color:#777;
-    font-size:14px;
-    margin-bottom:10px;
+color:#8b2d45;
+font-weight:bold;
+letter-spacing:2px;
+margin-bottom:15px;
 }
 
 h1{
-    color:#8b2d45;
-    font-size:48px;
-    font-style:italic;
-    margin-bottom:15px;
+font-size:48px;
+font-style:italic;
+color:#8b2d45;
+margin-bottom:15px;
 }
 
 .info{
-    color:#666;
-    margin-bottom:40px;
+color:#666;
+margin-bottom:40px;
 }
 
 .buttons{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:20px;
 }
 
 button{
-    cursor:pointer;
-    border:none;
-    border-radius:8px;
-    transition:.2s;
+cursor:pointer;
+border:none;
+transition:.2s;
 }
 
 #oui{
-    background:#8b2d45;
-    color:white;
-    font-size:26px;
-    padding:15px 70px;
+background:#8b2d45;
+color:white;
+padding:15px 70px;
+font-size:26px;
+border-radius:12px;
 }
 
 #oui:hover{
-    transform:scale(1.05);
+transform:scale(1.08);
 }
 
 #non{
-    background:white;
-    border:1px solid #999;
-    font-size:11px;
-    padding:5px 10px;
+padding:6px 12px;
+font-size:11px;
+background:white;
+border:1px solid #999;
+border-radius:8px;
 }
-</style>
 
+.success{
+background:rgba(255,255,255,.95);
+padding:60px;
+border-radius:20px;
+box-shadow:0 20px 45px rgba(0,0,0,.15);
+animation:pop .6s;
+text-align:center;
+}
+
+.success h1{
+font-size:60px;
+}
+
+.success p{
+font-size:30px;
+margin-top:20px;
+}
+
+</style>
 </head>
 
 <body>
 
 <div class="card">
 
-<p class="small">POUR BOUBOUUUU </p>
+<p class="small">❤️ POUR BOUBOUUUU ❤️</p>
 
 <h1>Ça te dit un date avec moi ?</h1>
 
-<p class="info">(Tu peux essayer de dire non )</p>
+<p class="info">(Tu peux essayer de dire non 😌)</p>
 
 <div class="buttons">
-    <button id="non">Non</button>
-    <button id="oui">Oui</button>
+<button id="non">Non</button>
+<button id="oui">Oui</button>
 </div>
 
 </div>
 
 <script>
 
-document.getElementById("oui").onclick = function(){
+let vitesse = 700;
 
-document.body.innerHTML = `
-<div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#f8f5f2;font-family:Georgia;">
-<div style="background:white;padding:60px;border-radius:15px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.15);">
+function coeur(){
 
-<h1 style="color:#8b2d45;"> Parfait </h1>
+const heart=document.createElement("div");
 
-<p style="font-size:28px;">
-Dis-moi quel jour t'es disponible 
+heart.className="heart";
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(15+Math.random()*20)+"px";
+heart.style.animationDuration=(4+Math.random()*3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},7000);
+
+}
+
+setInterval(()=>{
+coeur();
+},vitesse);
+
+document.getElementById("non").onclick=function(){
+
+alert("T'as pas le choix connard 😂❤️");
+
+}
+
+document.getElementById("oui").onclick=function(){
+
+vitesse=180;
+
+document.body.innerHTML=`
+
+<div class="success">
+
+<h1>❤️ Parfait ❤️</h1>
+
+<p>
+Ça me fait trop plaisir 🥹
+</p>
+
+<p>
+Dis-moi quel jour t'es disponible 🫶
 </p>
 
 </div>
-</div>
+
 `;
 
-};
+setInterval(()=>{
+coeur();
+},180);
 
-document.getElementById("non").onclick = function(){
-alert("T'as pas le choix connard ");
-};
+}
 
 </script>
 
