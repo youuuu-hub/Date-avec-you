@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>❤️ Une question...</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#f8f5f2;
+    font-family:Georgia, serif;
+}
+
+.card{
+    width:550px;
+    background:white;
+    padding:50px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+.small{
+    color:#777;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+h1{
+    color:#8b2d45;
+    font-size:48px;
+    font-style:italic;
+    margin-bottom:15px;
+}
+
+.info{
+    color:#666;
+    margin-bottom:40px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+}
+
+button{
+    cursor:pointer;
+    border:none;
+    border-radius:8px;
+    transition:.2s;
+}
+
+#oui{
+    background:#8b2d45;
+    color:white;
+    font-size:26px;
+    padding:15px 70px;
+}
+
+#oui:hover{
+    transform:scale(1.05);
+}
+
+#non{
+    background:white;
+    border:1px solid #999;
+    font-size:11px;
+    padding:5px 10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<p class="small">POUR BOUBOUUUU </p>
+
+<h1>Ça te dit un date avec moi ?</h1>
+
+<p class="info">(Tu peux essayer de dire non )</p>
+
+<div class="buttons">
+    <button id="non">Non</button>
+    <button id="oui">Oui</button>
+</div>
+
+</div>
+
+<script>
+
+document.getElementById("oui").onclick = function(){
+
+document.body.innerHTML = `
+<div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#f8f5f2;font-family:Georgia;">
+<div style="background:white;padding:60px;border-radius:15px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.15);">
+
+<h1 style="color:#8b2d45;"> Parfait </h1>
+
+<p style="font-size:28px;">
+Dis-moi quel jour t'es disponible 
+</p>
+
+</div>
+</div>
+`;
+
+};
+
+document.getElementById("non").onclick = function(){
+alert("T'as pas le choix connard ");
+};
+
+</script>
+
+</body>
+</html>
