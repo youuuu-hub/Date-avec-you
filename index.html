@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>❤️ Une question...</title>
+<title>Une question...</title>
 
 <style>
 
@@ -148,7 +148,7 @@ margin-top:20px;
 
 <div class="card">
 
-<p class="small"> POUR BOUBOUUUU </p>
+<p class="small">POUR BOUBOUUUU</p>
 
 <h1>Ça te dit un date avec moi ?</h1>
 
@@ -164,6 +164,7 @@ margin-top:20px;
 <script>
 
 let vitesse = 700;
+let interval = setInterval(coeur, vitesse);
 
 function coeur(){
 
@@ -184,37 +185,31 @@ heart.remove();
 
 }
 
-setInterval(()=>{
-coeur();
-},vitesse);
-
 document.getElementById("non").onclick=function(){
 
-alert("T'as pas le choix connard ");
+alert("T'as pas le choix connard");
 
 }
 
 document.getElementById("oui").onclick=function(){
 
-vitesse=180;
+clearInterval(interval);
 
 document.body.innerHTML=`
 
 <div class="success">
 
-<h1> Parfait </h1>
+<h1>Parfait</h1>
 
 <p>
-Dis-moi quel jour t'es dispo
+Dis-moi quel jour t'es dispo.
 </p>
 
 </div>
 
 `;
 
-setInterval(()=>{
-coeur();
-},180);
+interval = setInterval(coeur,140);
 
 }
 
